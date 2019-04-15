@@ -12,12 +12,11 @@ const passport = require("passport");
 //create access to the API from the server
 const admins = require("./routers/api/admins");
 const branches = require("./routers/api/branches");
-const documents = require("./routers/api/document");
 const games = require("./routers/api/games");
 const category = require("./routers/api/category");
 const subcategory = require("./routers/api/subcategory");
 const product = require("./routers/api/product");
-const document = require("./routers/api/document");
+const abguidancedocument = require("./routers/api/abguidancedocument");
 const file = require("./routers/api/file");
 const guidances = require("./routers/api/guidances");
 const ideals = require("./routers/api/ideals");
@@ -34,7 +33,8 @@ app.use(fileUpload());
 //This module provides the following parsers: JSON, Raw, text and URL-encoded.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // for parsing application/json
-const url = "mongodb+srv://mongo:mongo@cluster0-tky4c.mongodb.net/" + 
+const url =
+  "mongodb+srv://mongo:mongo@cluster0-tky4c.mongodb.net/" +
   "portaldb?retryWrites=true";
 mongoose
   .connect(url, { useNewUrlParser: true })
@@ -53,12 +53,11 @@ require("./config/passport")(passport);
 app.use("/api/branches", branches);
 app.use("/api/admins", admins);
 
-app.use("/api/documents", documents);
 app.use("/api/games", games);
 app.use("/api/category", category);
 app.use("/api/subcategory", subcategory);
 app.use("/api/product", product);
-app.use("/api/document", document);
+app.use("/api/abguidancedocument", abguidancedocument);
 app.use("/api/file", file);
 app.use("/api/guidances", guidances);
 app.use("/api/ideals", ideals);

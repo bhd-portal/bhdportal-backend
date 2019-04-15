@@ -1,4 +1,4 @@
-const Document = require("../models/Document");
+const ABGuidanceDocument = require("../models/ABGuidanceDocument");
 
 exports.addDocument = function(req, res, next) {
   const body = req.body;
@@ -6,7 +6,7 @@ exports.addDocument = function(req, res, next) {
   if (!body.subcategory_id || !body.name || !body.href) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }
-  const document = new Document(body);
+  const document = new ABGuidanceDocument(body);
   document.save(function(err) {
     if (err) {
       return next(err);
@@ -20,7 +20,7 @@ exports.patchDocument = function(req, res, next) {
   if (!id) {
     return res.status(422).send({ error: "חסר מזהה קטגוריה" });
   }
-  Document.findByIdAndUpdate(id, req.body, { new: true }, function(
+  ABGuidanceDocument.findByIdAndUpdate(id, req.body, { new: true }, function(
     err,
     document
   ) {
@@ -41,7 +41,7 @@ exports.deleteDocument = function(req, res) {
   if (!id) {
     return res.status(422).send({ error: "חסר מזהה קטגוריה" });
   }
-  Document.findByIdAndRemove(id, function(err, document) {
+  ABGuidanceDocument.findByIdAndRemove(id, function(err, document) {
     if (err) {
       return res.status(404).send(err);
     }
@@ -59,7 +59,7 @@ exports.getDocuments = function(req, res, next) {
     return res.status(422).send({ error: "חסר מזהה עמוד" });
   }
 
-  Document.find({ subcategory_id }, function(err, documents) {
+  ABGuidanceDocument.find({ subcategory_id }, function(err, documents) {
     if (err) {
       return next(err);
     }
