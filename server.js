@@ -34,7 +34,8 @@ app.use(fileUpload());
 //This module provides the following parsers: JSON, Raw, text and URL-encoded.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // for parsing application/json
-const url = "mongodb://localhost:27017/PortalDB";
+const url = "mongodb+srv://mongo:mongo@cluster0-tky4c.mongodb.net/" + 
+  "portaldb?retryWrites=true";
 mongoose
   .connect(url, { useNewUrlParser: true })
   .then(() => console.log("yay ! mongoDb connected"))
