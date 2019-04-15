@@ -1,0 +1,100 @@
+=======================================
+ Wed May 04 2016 20:47:35 GMT+0300
+ 	Company: GuideGuide
+ 	Product: GuideGuide
+ 	Product version: 4.1.5
+ 	App: photoshop
+ 	App Version: 16.0.0
+ 	OS: Macintosh OS 10.11.4/64
+ 	Locale: en_US
+ ---------------------------------------
+ 	Installer Version: 0.1.1
+ =======================================
+
+Preflight 
+----------------------------
+OK: PS version 16 in the range [14, 16.9]
+
+Items to be installed 
+----------------------------
+- HTML_PANEL
+- SCRIPT
+- MAC_PLUGIN
+- WIN_PLUGIN
+- EXTRA
+
+
+Adding HTML_PANEL
+----------------------------
+Destination folder: /Library/Application Support/Adobe/CEP/extensions/GuideGuide
+Destination Folder successfully created.
+
+List of Folders to be copied for the HTML_PANEL:
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/CSXS
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/guideguide
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/host
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/icons
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/lib
+Folder: /Users/Yanon/Downloads/Adobe Photoshop CC 2015 16.1.2/GuideGuide 4.1.5 [k'ed] Specail [K]/ASSETS/HTML/META-INF
+Folder: ~/Downloads/Adobe%20Photoshop%20CC%202015%2016.1.2/GuideGuide%204.1.5%20%5Bk'ed%5D%20Specail%20%5BK%5D/ASSETS/HTML
+
+Creating Folders in destination and copying files:
+
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide
+Copied:		bridge.js
+Copied:		index.html
+Copied:		mimetype
+Copied:		Special%20%5BK%5D
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/CSXS
+Copied:		manifest.xml
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/guideguide
+Copied:		index.html
+Copied:		main.js
+Copied:		screen.css
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/host
+Copied:		ps.jsx
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/icons
+Copied:		GuideGuideDarkNormal.png
+Copied:		GuideGuideDarkRollover.png
+Copied:		GuideGuideNormal.png
+Copied:		GuideGuideRollover.png
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/lib
+Copied:		CSInterface.js
+Copied:		tinycolor.min.js
+Created Folder:	/Library/Application Support/Adobe/CEP/extensions/GuideGuide/META-INF
+Copied:		signatures.xml
+
+Ended copying files for HTML_PANEL.
+
+
+Adding SCRIPT
+----------------------------
+Destination folder: /Applications/Adobe Photoshop CC 2015/Presets/Scripts/GuideGuide/GuideGuide
+Destination Folder successfully created.
+
+List of Folders to be copied for the SCRIPT:
+Folder: ~/Downloads/Adobe%20Photoshop%20CC%202015%2016.1.2/GuideGuide%204.1.5%20%5Bk'ed%5D%20Specail%20%5BK%5D/ASSETS/SCRIPT
+
+Creating Folders in destination and copying files:
+
+Created Folder:	/Applications/Adobe Photoshop CC 2015/Presets/Scripts/GuideGuide/GuideGuide
+
+Ended copying files for SCRIPT.
+
+
+Adding MAC_PLUGIN
+----------------------------
+Destination folder: /Applications/Adobe Photoshop CC 2015/Plug-Ins/GuideGuide
+Destination Folder successfully created.
+
+List of Folders to be copied for the MAC_PLUGIN:
+Folder: ~/Downloads/Adobe%20Photoshop%20CC%202015%2016.1.2/GuideGuide%204.1.5%20%5Bk'ed%5D%20Specail%20%5BK%5D/ASSETS/MAC_PLUGIN
+
+Creating Folders in destination and copying files:
+
+Created Folder:	/Applications/Adobe Photoshop CC 2015/Plug-Ins/GuideGuide
+
+Ended copying files for MAC_PLUGIN.
+
+EXTRA - Nothing to install
+
