@@ -13,6 +13,7 @@ const passport = require("passport");
 const admins = require("./routers/api/admins");
 const branches = require("./routers/api/branches");
 const games = require("./routers/api/games");
+const document = require("./routers/api/document");
 const category = require("./routers/api/category");
 const subcategory = require("./routers/api/subcategory");
 const product = require("./routers/api/product");
@@ -62,6 +63,7 @@ app.use("/api/file", file);
 app.use("/api/guidances", guidances);
 app.use("/api/ideals", ideals);
 app.use("/api/news", news);
+app.use("/api/document", document)
 // app.use("/api/tutorials", tutorials);
 
 const port = process.env.Port || 5003;
