@@ -3,9 +3,9 @@ exports.saveFile = function(req, res, next) {
   if (!req.files || !category || !filename) {
     return res.status(422).send({ error: " חסר קבצים או שיוך לקטגוריה" });
   }
-
   const file = req.files.file;
-  const path = `${__dirname}\\public\\${category}\\${filename}`;
+  const path = `${__dirname}/public/${category}/${filename}`;
+  console.log(file, path);
   file.mv(path, err => {
     if (err) {
       return res.status(500);
