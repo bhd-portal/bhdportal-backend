@@ -1,25 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const BranchSchema = new Schema({
+const BranchSchema =new Schema({
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
-    avatar: {
-        type: String,
-        required: false
+    category_id: {
+      type: String,
+      required: true
     },
-    commander: {
-        type: String,
-        required: false
-    },
-    structure: {
-        type: String,
-        required: false
+    href: {
+      type: String,
+      required: true
     }
-
-
-});
+  });
 
 module.exports = Branch = mongoose.model("branches", BranchSchema);

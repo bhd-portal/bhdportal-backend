@@ -31,10 +31,6 @@ router.post("/", (req, res) => {
   }
 );
 
-//@route POST api/ideals/:id
-//@desc Edit an ideal
-//@access Private
-
 router.post("/:id", (req, res) => {
     const ideal_fields = {};
     if (req.body.name) {
