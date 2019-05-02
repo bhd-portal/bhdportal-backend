@@ -25,6 +25,7 @@ const news = require("./routers/api/news");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const tutorials = require("./routers/api/tutorials");
+const config = require("./config/config");
 
 //returns the express class - lets us use http request
 const app = express();
@@ -34,9 +35,7 @@ app.use(fileUpload());
 //This module provides the following parsers: JSON, Raw, text and URL-encoded.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // for parsing application/json
-const url =
-  "mongodb+srv://mongo:mongo@cluster0-tky4c.mongodb.net/" +
-  "portaldb?retryWrites=true";
+const url = config.dbUrl;
 mongoose
   .connect(url, { useNewUrlParser: true })
   .then(() => console.log("yay ! mongoDb connected"))
@@ -66,6 +65,6 @@ app.use("/api/news", news);
 app.use("/api/document", document);
 // app.use("/api/tutorials", tutorials);
 
-const port = process.env.Port || 5003;
+const port = process.env.Port || config.port;
 
 app.listen(port, () => console.log(`server running on port ${port}`));
