@@ -1,3 +1,6 @@
+const path = require("path");
+const fs = require("fs");
+
 exports.getFile = function(req, res, next) {
   const { path } = req.body;
   if (!req.path) {
@@ -6,19 +9,28 @@ exports.getFile = function(req, res, next) {
   res.download(path);
 };
 
-
-
 exports.saveFile = function(req, res, next) {
   const { category, filename } = req.body;
   if (!req.files || !category || !filename) {
     return res.status(422).send({ error: " חסר קבצים או שיוך לקטגוריה" });
   }
   const file = req.files.file;
-  const path = __dirname + "/public/" + category + "/" + filename;
-  file.mv(path, err => {
+  const file_path = path.join(category, filename);
+  const save_path = path.join(
+    __dirname,
+    "..",
+    "..",
+    "bhdportal",
+    "public",
+    category
+  );
+  if (!fs.existsSync(save_path)) {
+    fs.mkdirSync(save_path);
+  }
+  file.mv(path.join(save_path, filename), err => {
     if (err) {
       return res.status(500);
     }
   });
-  return res.status(200).json({ path });
+  return res.status(200).json({ path: file_path });
 };

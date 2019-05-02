@@ -63,7 +63,7 @@ app.use("/api/file", file);
 app.use("/api/guidances", guidances);
 app.use("/api/ideals", ideals);
 app.use("/api/news", news);
-app.use("/api/document", document)
+app.use("/api/document", document);
 // app.use("/api/tutorials", tutorials);
 
 const port = process.env.Port || 5003;

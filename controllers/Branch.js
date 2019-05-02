@@ -55,11 +55,11 @@ exports.getBranchs = function(req, res, next) {
     return res.status(422).send({ error: "חסר מזהה עמוד" });
   }
 
-  Branch.find({ category_id }, function(err, branchs) {
+  Branch.find({ category_id }, function(err, branches) {
     if (err) {
       return next(err);
     }
-    if (branchs) {
+    if (branches) {
       return res.status(200).send({ branches });
     }
   });
