@@ -63,7 +63,6 @@ exports.getProducts = function(req, res, next) {
       return next(err);
     }
     if (products) {
-      console.log(products);
       return res.status(200).send({ products });
     }
   });

@@ -19,10 +19,7 @@ exports.patchBranch = function(req, res, next) {
   if (!id) {
     return res.status(422).send({ error: "חסר מזהה קטגוריה" });
   }
-  Branch.findByIdAndUpdate(id, req.body, { new: true }, function(
-    err,
-    branch
-  ) {
+  Branch.findByIdAndUpdate(id, req.body, { new: true }, function(err, branch) {
     if (err) {
       res.status(404).send(err);
       return next(err);
@@ -63,7 +60,7 @@ exports.getBranchs = function(req, res, next) {
       return next(err);
     }
     if (branchs) {
-      return res.status(200).send({ branchs });
+      return res.status(200).send({ branches });
     }
   });
 };

@@ -2,7 +2,6 @@ const ABGuidanceDocument = require("../models/ABGuidanceDocument");
 
 exports.addDocument = function(req, res, next) {
   const body = req.body;
-  console.log("1");
   if (!body.subcategory_id || !body.name || !body.href) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }

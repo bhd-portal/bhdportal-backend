@@ -15,7 +15,6 @@ exports.saveFile = function(req, res, next) {
   }
   const file = req.files.file;
   const path = __dirname + "/public/" + category + "/" + filename;
-  console.log(file, path);
   file.mv(path, err => {
     if (err) {
       return res.status(500);
