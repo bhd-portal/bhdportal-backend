@@ -50,8 +50,12 @@ exports.deleteBranch = function(req, res) {
 };
 
 exports.getBranchs = function(req, res, next) {
+  var ObjectId = require("mongoose").Types.ObjectId;
   const { id } = req.query;
   if (id) {
+    if (!ObjectId.isValid(id)) {
+      return res.status(200).send({ branch: undefined });
+    }
     Branch.findById(id, function(err, branch) {
       if (err) {
         return next(err);
