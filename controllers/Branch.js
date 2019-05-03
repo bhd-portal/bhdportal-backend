@@ -50,12 +50,24 @@ exports.deleteBranch = function(req, res) {
 };
 
 exports.getBranchs = function(req, res, next) {
-  Branch.find({}, function(err, branches) {
-    if (err) {
-      return next(err);
-    }
-    if (branches) {
-      return res.status(200).send({ branches });
-    }
-  });
+  const { id } = req.query;
+  if (id) {
+    Branch.findById(id, function(err, branch) {
+      if (err) {
+        return next(err);
+      }
+      if (branch) {
+        return res.status(200).send({ branch });
+      }
+    });
+  } else {
+    Branch.find({}, function(err, branches) {
+      if (err) {
+        return next(err);
+      }
+      if (branches) {
+        return res.status(200).send({ branches });
+      }
+    });
+  }
 };
