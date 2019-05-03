@@ -1,75 +1,74 @@
-const Product = require("../models/Product");
+const Mador = require("../models/Mador");
 
-exports.addProduct = function(req, res, next) {
+exports.addMador = function(req, res, next) {
   const body = req.body;
+  console.log(!body.name);
   if (
-    !body.title ||
-    !body.subcategory_id ||
+    !body.name ||
+    !body.branch_id ||
     !body.content ||
     !body.imageURL ||
-    !body.link
+    !body.description
   ) {
+    console.log(!body.name);
     return res.status(422).send({ error: "חסרים פרטים" });
   }
-  const product = new Product(body);
-  product.save(function(err) {
+  const mador = new Mador(body);
+  mador.save(function(err) {
     if (err) {
       return next(err);
     }
   });
-  return res.status(200).send({ product });
+  return res.status(200).send({ mador });
 };
 
-exports.patchProduct = function(req, res, next) {
+exports.patchMador = function(req, res, next) {
   const { id } = req.body;
   if (!id) {
     return res.status(422).send({ error: "חסר מזהה קטגוריה" });
   }
-  Product.findByIdAndUpdate(id, req.body, { new: true }, function(
-    err,
-    product
-  ) {
+  Mador.findByIdAndUpdate(id, req.body, { new: true }, function(err, mador) {
     if (err) {
       res.status(404).send(err);
       return next(err);
     }
-    if (product) {
-      return res.status(200).send({ product });
+    if (mador) {
+      return res.status(200).send({ mador });
     } else {
       return res.status(404).send({ error: "לא קיימת קטגוריה עם מזהה זה" });
     }
   });
 };
 
-exports.deleteProduct = function(req, res) {
+exports.deleteMador = function(req, res) {
   const { id } = req.query;
   if (!id) {
     return res.status(422).send({ error: "חסר מזהה קטגוריה" });
   }
-  Product.findByIdAndRemove(id, function(err, product) {
+  Mador.findByIdAndRemove(id, function(err, mador) {
     if (err) {
       return res.status(404).send(err);
     }
-    if (product) {
-      return res.status(200).send({ product });
+    if (mador) {
+      return res.status(200).send({ mador });
     } else {
       return res.status(404).send({ error: "לא קיימת קטגוריה עם מזהה זה" });
     }
   });
 };
 
-exports.getProducts = function(req, res, next) {
-  const { subcategory_id } = req.query;
-  if (!subcategory_id) {
+exports.getMadors = function(req, res, next) {
+  const { branch_id } = req.query;
+  if (!branch_id) {
     return res.status(422).send({ error: "חסר מזהה עמוד" });
   }
 
-  Product.find({ subcategory_id }, function(err, products) {
+  Mador.find({ branch_id }, function(err, madorim) {
     if (err) {
       return next(err);
     }
-    if (products) {
-      return res.status(200).send({ products });
+    if (madorim) {
+      return res.status(200).send({ madorim });
     }
   });
 };
