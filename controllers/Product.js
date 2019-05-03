@@ -2,7 +2,10 @@ const Product = require("../models/Product");
 
 exports.addProduct = function(req, res, next) {
   const body = req.body;
-  if (!body.title || !body.subcategory_id || !body.content || !body.imageURL) {
+  if (
+    (!body.title || !body.subcategory_id || !body.content || !body.imageURL,
+    !body.link)
+  ) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }
   const product = new Product(body);
