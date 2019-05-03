@@ -11,7 +11,7 @@ const passport = require("passport");
 
 //create access to the API from the server
 const admins = require("./routers/api/admins");
-const branches = require("./routers/api/branches");
+const branch = require("./routers/api/branch");
 const games = require("./routers/api/games");
 const document = require("./routers/api/document");
 const category = require("./routers/api/category");
@@ -50,7 +50,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 //create routers for each api object - set the link
-app.use("/api/branches", branches);
+app.use("/api/branch", branch);
 app.use("/api/admins", admins);
 
 app.use("/api/games", games);

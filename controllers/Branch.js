@@ -2,7 +2,7 @@ const Branch = require("../models/Branch");
 
 exports.addBranch = function(req, res, next) {
   const body = req.body;
-  if (!body.category_id || !body.name || !body.href || !body.icon) {
+  if (!body.name || !body.imageURL) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }
   const branch = new Branch(body);
@@ -50,12 +50,7 @@ exports.deleteBranch = function(req, res) {
 };
 
 exports.getBranchs = function(req, res, next) {
-  const { category_id } = req.query;
-  if (!category_id) {
-    return res.status(422).send({ error: "חסר מזהה עמוד" });
-  }
-
-  Branch.find({ category_id }, function(err, branches) {
+  Branch.find({}, function(err, branches) {
     if (err) {
       return next(err);
     }
