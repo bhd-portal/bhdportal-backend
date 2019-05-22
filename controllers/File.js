@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 
 exports.getFile = function(req, res, next) {
+  console.log(req);
   const { path } = req.body;
   if (!req.path) {
     return res.status(422).send({ error: "Please add file path" });
@@ -12,7 +13,7 @@ exports.getFile = function(req, res, next) {
 exports.saveFile = function(req, res, next) {
   const { category, filename } = req.body;
   if (!req.files || !category || !filename) {
-    return res.status(422).send({ error: " חסר קבצים או שיוך לקטגוריה" });
+    return res.status(422).send({ error: " חסר קבצים או שיוך לקטגוריה" + req.files });
   }
   const file = req.files.file;
   const file_path = path.join(category, filename);

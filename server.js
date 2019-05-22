@@ -15,6 +15,7 @@ const branch = require("./routers/api/branch");
 const mador = require("./routers/api/mador");
 const games = require("./routers/api/games");
 const document = require("./routers/api/document");
+const powerpoint = require("./routers/api/powerpoint");
 const category = require("./routers/api/category");
 const subcategory = require("./routers/api/subcategory");
 const product = require("./routers/api/product");
@@ -65,6 +66,7 @@ app.use("/api/guidances", guidances);
 app.use("/api/ideals", ideals);
 app.use("/api/news", news);
 app.use("/api/document", document);
+app.use("/api/powerpoint", powerpoint);
 // app.use("/api/tutorials", tutorials);
 
 const port = process.env.Port || config.port;

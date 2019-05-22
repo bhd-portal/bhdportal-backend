@@ -15,4 +15,8 @@ const AdminSchema = new Schema({
   }
 });
 
+
 module.exports = Admin = mongoose.model("admins", AdminSchema);
+
+// Create new instances.
+Admin.create({name: "Aviv", password: "123456", avatar:"xxx"})
