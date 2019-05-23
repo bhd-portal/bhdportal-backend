@@ -10,7 +10,7 @@ const PowerpointSchema = new Schema({
     type: String,
     required: true
   },
-  imageHref: {
+  icon: {
     type: String,
     required: true
   },

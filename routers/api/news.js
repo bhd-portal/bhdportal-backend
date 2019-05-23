@@ -58,6 +58,10 @@ router.post(
       news_fields.text = req.body.text;
     }
 
+    if(req.body.date) {
+      news_field.date = req.body.date;
+    }
+
     //Branch.findOne()
     //console.log(db.branches.find());
 

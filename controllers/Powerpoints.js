@@ -2,7 +2,7 @@ const Powerpoint = require("../models/Powerpoint");
 
 exports.addPowerpoint = function(req, res, next) {
   const body = req.body;
-  if (!body.category_id || !body.name || !body.href || !body.imageHref) {
+  if (!body.category_id || !body.name || !body.href || !body.icon) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }
   const powerpoint = new Powerpoint(body);
