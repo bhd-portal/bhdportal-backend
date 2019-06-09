@@ -14,7 +14,7 @@ const PowerpointSchema = new Schema({
     type: String,
     required: true
   },
-  href: {
+  file_id: {
     type: String,
     required: true
   }

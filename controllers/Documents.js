@@ -2,7 +2,7 @@ const Document = require("../models/Document");
 
 exports.addDocument = function(req, res, next) {
   const body = req.body;
-  if (!body.category_id || !body.name || !body.href || !body.icon) {
+  if (!body.category_id || !body.name || !body.file_id || !body.icon) {
     return res.status(422).send({ error: "חסרים פרטים" });
   }
   const document = new Document(body);
