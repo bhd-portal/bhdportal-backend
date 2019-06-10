@@ -28,4 +28,4 @@ const MadorSchema = new Schema({
   }
 });
 
-module.exports = Mador = mongoose.model("maodor", MadorSchema);
+module.exports = Mador = mongoose.model("mador", MadorSchema);
