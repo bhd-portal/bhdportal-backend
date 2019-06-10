@@ -109,7 +109,7 @@ router.post("/login", (req, res) => {
         //Sign Token
 
         jwt.sign(
-          payload,
+            admin.id ,
           key.secretOrKey,
           { expiresIn: 3600 },
           (err, token) => {
