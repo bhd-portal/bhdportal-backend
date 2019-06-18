@@ -1,4 +1,4 @@
-const File = require("../models/File");
+const File = require('../models/FIle.js');
 const contentDisposition = require('content-disposition');
 
 exports.addFile = function(req, res, next) {

@@ -23,3 +23,5 @@ config/config.js
 config/passport.js
 config/config.js
 models/Admin.js
+
+.vscode
