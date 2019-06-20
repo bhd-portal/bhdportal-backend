@@ -1,19 +1,21 @@
 
 const CommanderWords = require('../models/CommanderWords.js');
 
-const addCommanderWord = (req, res) => {
+const addCommanderWord = (req, res, next) => {
     const body = req.body;
     const commanderWords = new CommanderWords(body);
 
     if (!body.title || !body.content) {
-        res.status(422).send('title or content are missing.');
+        return res.status(422).send('title or content are missing.');
     }
 
     commanderWords.save(err => {
-        res.sendStatus(500);
+        if (err) {
+            return next(err);
+        }
     });
 
-    res.sendStatus(200);
+    return res.status(200).send({ commanderWords });
 };
 
 module.exports = {
