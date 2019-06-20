@@ -2,7 +2,7 @@ const Pictures = require("../models/Picture");
 
 exports.addPicture = function (req, res, next) {
     const body = req.body;
-    if (!body.name || body.file_id || !body.picture_category) {
+    if (!body.name || body.file_id || !body.category_id) {
         return res.status(422).send({ error: "חסרים פרטים" });
     }
     const picture = new Pictures(body);
