@@ -5,10 +5,13 @@ exports.addPicture = function (req, res, next) {
     if (!body.name || !body.file_id || !body.category_id) {
         return res.status(422).send({ error: "חסרים פרטים" });
     }
-    const picture = new Pictures(body);
-    picture.save(function (err) {
-        return next(err);
-    })
+    const picture = new Picture(body);
+    picture.save(function(err) {
+        if (err) {
+            return next(err);
+        }
+    });
+    return res.status(200).send({ picture });
 };
 
 exports.patchPicture = function(req, res, next) {
