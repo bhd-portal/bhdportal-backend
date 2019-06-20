@@ -7,10 +7,10 @@ const PictureSchema = new Schema({
        required: true
    },
     file_id: {
-       type: ObjectId,
+       type: String,
         required: true
     },
-    picture_category: {
+    category_id: {
        type: String,
         required: true
     }
