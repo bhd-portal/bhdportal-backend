@@ -19,8 +19,10 @@ const postCommanderWord = (req, res, next) => {
 };
 
 const getCommanderWord = (req, res, next) => {
-    return res.sendStatus(501);
-    //db.getCollection('commander_words').find({title: "test-title0"})
+    CommanderWords.find({title: req.query.title}, (err, result) => {
+        console.log(result[0].toJSON().content);
+        return res.status(200).send(result[0].toJSON().content);
+    });
 };
 
 module.exports = {
