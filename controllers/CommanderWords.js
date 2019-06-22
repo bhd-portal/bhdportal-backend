@@ -1,7 +1,7 @@
 
 const CommanderWords = require('../models/CommanderWords.js');
 
-const addCommanderWord = (req, res, next) => {
+const postCommanderWord = (req, res, next) => {
     const body = req.body;
     const commanderWords = new CommanderWords(body);
 
@@ -18,6 +18,12 @@ const addCommanderWord = (req, res, next) => {
     return res.status(200).send({ commanderWords });
 };
 
+const getCommanderWord = (req, res, next) => {
+    return res.sendStatus(501);
+    //db.getCollection('commander_words').find({title: "test-title0"})
+};
+
 module.exports = {
-    addCommanderWord
+    postCommanderWord,
+    getCommanderWord
 };
