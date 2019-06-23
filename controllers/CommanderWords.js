@@ -19,10 +19,21 @@ const postCommanderWord = (req, res, next) => {
 };
 
 const getCommanderWord = (req, res, next) => {
-    CommanderWords.find({title: req.query.title}, (err, result) => {
-        console.log(result[0].toJSON().content);
-        return res.status(200).send(result[0].toJSON().content);
-    });
+    if (req.query.title) {
+        CommanderWords.find({title: req.query.title}, (err, result) => {
+            console.log(result[0].toJSON().content);
+            return res.status(200).send(result[0].toJSON().content);
+        });
+    } else {
+        CommanderWords.find((err, result) => {
+            return res.status(200).send(result.map(model => {
+                return {
+                    content: model.toJSON().content,
+                    title: model.toJSON().title
+                }
+            }));
+        });
+    }
 };
 
 module.exports = {
