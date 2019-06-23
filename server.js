@@ -24,6 +24,7 @@ const file = require("./routers/api/file");
 const guidances = require("./routers/api/guidances");
 const ideals = require("./routers/api/ideals");
 const news = require("./routers/api/news");
+const commanderWords = require('./routers/api/commanderWords.js');
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const tutorials = require("./routers/api/tutorials");
@@ -67,6 +68,7 @@ app.use("/api/ideals", ideals);
 app.use("/api/news", news);
 app.use("/api/document", document);
 app.use("/api/powerpoint", powerpoint);
+app.use('/api/commanderwords', commanderWords);
 // app.use("/api/tutorials", tutorials);
 
 const port = process.env.Port || config.port;
