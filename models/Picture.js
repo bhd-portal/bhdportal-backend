@@ -9,10 +9,6 @@ const PictureSchema = new Schema({
     file_id: {
        type: String,
         required: true
-    },
-    category_id: {
-       type: String,
-        required: true
     }
 });
 

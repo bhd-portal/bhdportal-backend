@@ -1,8 +1,8 @@
-const Pictures = require("../models/Picture");
+const Picture = require("../models/Picture");
 
 exports.addPicture = function (req, res, next) {
     const body = req.body;
-    if (!body.name || !body.file_id || !body.category_id) {
+    if (!body.name || !body.file_id) {
         return res.status(422).send({ error: "חסרים פרטים" });
     }
     const picture = new Picture(body);
@@ -19,7 +19,7 @@ exports.patchPicture = function(req, res, next) {
     if (!id) {
         return res.status(422).send({ error: "חסר מזהה תמונה" });
     }
-    Pictures.findByIdAndUpdate(id, req.body, { new: true }, function(
+    Picture.findByIdAndUpdate(id, req.body, { new: true }, function(
         err,
         picture
     ) {
@@ -40,7 +40,7 @@ exports.deletePicture = function(req, res) {
     if (!id) {
         return res.status(422).send({ error: "חסר מזהה תמונה " });
     }
-    Pictures.findByIdAndRemove(id, function(err, picture) {
+    Picture.findByIdAndRemove(id, function(err, picture) {
         if (err) {
             return res.status(404).send(err);
         }
@@ -53,17 +53,19 @@ exports.deletePicture = function(req, res) {
 };
 
 exports.getPictures = function(req, res, next) {
-    const { category_id } = req.query;
-    if (!category_id) {
-        return res.status(422).send({ error: "חסר מזהה עמוד" });
+    const { id } = req.body;
+    if (!id) {
+        return res.status(422).send({ error: "חסר מזהה תמונה!" });
     }
 
-    Pictures.find({ category_id }, function(err, picture) {
+    Picture.findById({ id }, function(err, picture) {
         if (err) {
             return next(err);
         }
         if (picture) {
             return res.status(200).send({ picture });
+        } else {
+            return res.status(404).send({ error: "לא קיימת תמונה עם מזהה זה" });
         }
     });
 };

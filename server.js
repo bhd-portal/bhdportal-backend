@@ -29,6 +29,7 @@ const fileUpload = require("express-fileupload");
 const tutorials = require("./routers/api/tutorials");
 const config = require("./config/config");
 const picture = require("./routers/api/picture");
+const album = require("./routers/api/album");
 
 //returns the express class - lets us use http request
 const app = express();
@@ -69,6 +70,7 @@ app.use("/api/news", news);
 app.use("/api/document", document);
 app.use("/api/powerpoint", powerpoint);
 app.use("/api/picture", picture);
+app.use("/api/album", album);
 // app.use("/api/tutorials", tutorials);
 
 const port = process.env.Port || config.port;
