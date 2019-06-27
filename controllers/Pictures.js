@@ -58,12 +58,12 @@ exports.getPictures = function(req, res, next) {
         return res.status(422).send({ error: "חסר מזהה אלבום" });
     }
 
-    Picture.find({ album_id }, function(err, picture) {
+    Picture.find({ album_id }, function(err, pictures) {
         if (err) {
             return next(err);
         }
-        if (picture) {
-            return res.status(200).send({ picture });
+        if (pictures) {
+            return res.status(200).send({ pictures });
         }
     });
 };

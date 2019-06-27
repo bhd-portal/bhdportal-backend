@@ -5,13 +5,13 @@ exports.addAlbum = function (req, res, next) {
     if (!body.name || !body.icon || !body.category_id) {
         return res.status(422).send({ error: "חסרים פרטים" });
     }
-    const Album = new Album(body);
-    Album.save(function(err) {
+    const album = new Album(body);
+    album.save(function(err) {
         if (err) {
             return next(err);
         }
     });
-    return res.status(200).send({ Album });
+    return res.status(200).send({ album });
 };
 
 exports.patchAlbum = function(req, res, next) {
@@ -21,14 +21,14 @@ exports.patchAlbum = function(req, res, next) {
     }
     Album.findByIdAndUpdate(id, req.body, { new: true }, function(
         err,
-        Album
+        album
     ) {
         if (err) {
             res.status(404).send(err);
             return next(err);
         }
-        if (Album) {
-            return res.status(200).send({ Album });
+        if (album) {
+            return res.status(200).send({ album });
         } else {
             return res.status(404).send({ error: "לא קיים אלבום עם מזהה זה" });
         }
@@ -58,12 +58,12 @@ exports.getAlbums = function(req, res, next) {
         return res.status(422).send({ error: "חסר מזהה קטגוריה" });
     }
 
-    Album.find({ category_id }, function(err, album) {
+    Album.find({ category_id }, function(err, albums) {
         if (err) {
             return next(err);
         }
-        if (album) {
-            return res.status(200).send({ album });
+        if (albums) {
+            return res.status(200).send({ albums });
         }
     });
 };
