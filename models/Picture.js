@@ -5,7 +5,11 @@ const PictureSchema = new Schema({
    name: {
        type: String,
        required: true
-   },
+    },
+    album_id: {
+        type: String,
+        required: true
+    },
     file_id: {
        type: String,
         required: true

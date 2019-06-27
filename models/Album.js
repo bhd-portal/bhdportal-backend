@@ -6,8 +6,8 @@ const AlbumSchema = new Schema({
         type: String,
         required: true
     },
-    images: {
-        type: Array,
+    icon: {
+        type: String,
         required: true
     },
     category_id: {
