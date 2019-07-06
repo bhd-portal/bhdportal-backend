@@ -2,7 +2,7 @@ const Album = require("../models/Album");
 
 exports.addAlbum = function (req, res, next) {
     const body = req.body;
-    if (!body.name || !body.icon || !body.category_id) {
+    if (!body.name || !body.category_id) {
         return res.status(422).send({ error: "חסרים פרטים" });
     }
     const album = new Album(body);
