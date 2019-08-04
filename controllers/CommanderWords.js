@@ -18,6 +18,25 @@ const postCommanderWord = (req, res, next) => {
     return res.status(200).send({ commanderWords });
 };
 
+const patchCommanderWord = (req, res, next) => {
+    const body = req.body;
+
+    if (!body.title || !body.content) {
+        return res.status(422).send('title or content are missing.');
+    }
+
+    const commanderWord = new CommanderWords(body);
+
+    CommanderWords.findOneAndUpdate({title: commanderWord.title}, {content: commanderWord.content}, {upsert: true}, function(err, doc){
+        if (err) {
+            console.log('error while patching commander word', err)
+            return next(err);
+        }
+    });
+
+    return res.status(200).send({ commanderWords: commanderWord });
+};
+
 const getCommanderWord = (req, res, next) => {
     if (req.query.title) {
         CommanderWords.find({title: req.query.title}, (err, result) => {
@@ -38,5 +57,6 @@ const getCommanderWord = (req, res, next) => {
 
 module.exports = {
     postCommanderWord,
-    getCommanderWord
+    patchCommanderWord,
+    getCommanderWord,
 };
