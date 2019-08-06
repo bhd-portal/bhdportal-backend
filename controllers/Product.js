@@ -6,7 +6,7 @@ exports.addProduct = function(req, res, next) {
     !body.title ||
     !body.subcategory_id ||
     !body.content ||
-    !body.imageURL ||
+    !body.avatar_file_id ||
     !body.link
   ) {
     return res.status(422).send({ error: "חסרים פרטים" });

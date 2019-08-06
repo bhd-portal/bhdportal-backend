@@ -14,7 +14,7 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
-  imageURL: {
+  avatar_file_id: {
     type: String,
     required: true
   },
